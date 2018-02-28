@@ -20,7 +20,9 @@ class ProducerController extends Controller
 
 	public function index()
 	{
-		return Producer::all();
+		$data = Producer::all();
+
+		return view('producer.producer')->withData($data);
 	}
 
 	public function show($id)

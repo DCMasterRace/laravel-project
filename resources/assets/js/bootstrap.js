@@ -1,6 +1,6 @@
 
 window._ = require('lodash');
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery/dist/jquery');
 window.Popper = require('popper.js').default;
 
 /**

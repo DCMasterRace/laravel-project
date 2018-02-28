@@ -6,10 +6,12 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Fonts -->
+		<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 
         <title>Entropia - @yield('title')</title>
 

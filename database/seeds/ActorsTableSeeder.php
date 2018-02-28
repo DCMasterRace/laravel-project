@@ -16,7 +16,7 @@ class ActorsTableSeeder extends Seeder
 
 		$faker = \Faker\Factory::create();
 
-		for($i=0; $i<50; $i++) {
+		for($i=0; $i<20; $i++) {
 			$gender = $faker->randomElement($array = array('male', 'female'));
 			Actor::create([
 				'name' => $faker->name,

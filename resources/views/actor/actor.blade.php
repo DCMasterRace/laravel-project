@@ -1,57 +1,31 @@
 @extends('home')
 @section('content')
 
-	this is actor
-	<div class="table-responsive text-center">
-		<table class="table table-borderless" id="table">
-			<thead>
-				<tr>
-					<th class="text-center">#</th>
-					<th class="text-center">Name</th>
-					<th class="text-center">Actions</th>
-				</tr>
-			</thead>
-      <div class="container">
-    		<div class="form-group row add">
-    			<div class="col-md-8">
-    				<input type="text" class="form-control" id="name" name="name"
-    					placeholder="Enter some name" required>
-    				<p class="error text-center alert alert-danger hidden"></p>
-    			</div>
-    			<div class="col-md-4">
-    				<button class="btn btn-primary" type="submit" id="add">
-    					<span class="glyphicon glyphicon-plus"></span> ADD
-    				</button>
-    			</div>
-    		</div>
-  		   {{ csrf_field() }}
-  		<div class="table-responsive text-center">
-  			<table class="table table-borderless" id="table">
-  				<thead>
-  					<tr>
-  						<th class="text-center">#</th>
-  						<th class="text-center">Name</th>
-  						<th class="text-center">Actions</th>
-  					</tr>
-  				</thead>
-  				@foreach($data as $item)
-  				<tr class="item{{$item->id}}">
-  					<td>{{$item->id}}</td>
-  					<td>{{$item->name}}</td>
-  					<td><button class="edit-modal btn btn-info" data-id="{{$item->id}}"
-  							data-name="{{$item->name}}">
-  							<span class="glyphicon glyphicon-edit"></span> Edit
-  						</button>
-  						<button class="delete-modal btn btn-danger"
-  							data-id="{{$item->id}}" data-name="{{$item->name}}">
-  							<span class="glyphicon glyphicon-trash"></span> Delete
-  						</button></td>
-  				</tr>
-  				@endforeach
-  			</table>
-  		</div>
-  	</div>
-		</table>
+	<div class="col-md-12">
+		<button class="btn btn-primary" type="submit" id="add">
+			<span class="glyphicon glyphicon-plus"></span> ADD
+		</button>
+	</div>
+	<div id='actor' class="row table-responsive text-center col-md-12">
+		<div class="container">
+			<div class="row col-md-12" id="table">
+				@foreach($data as $item)
+					<div class="col-md-3 item-{{$item->id}}">
+						<div class="card">
+							@if($item->sex === "male")
+								<img src="/img/img.jpg" alt="img" style="width:100%">
+							@else
+								<img src="/img/imgf.jpg" alt="img" style="width:100%">
+							@endif
+							<h3>{{$item->name}}</h3>
+							<p class="title">{{$item->bio}}</p>
+							<p>DOB: {{$item->dob}}</p>
+							<p><button type="button" data-id="{{$item->id}}" data-name="{{$item->name}}" data-bio="{{$item->bio}}" data-sex="{{$item->sex}}" data-dob="{{$item->dob}}" class="edit-modal btn btn-info"><span class="fa fa-edit"></span> EDIT</button><button type="button" data-id="{{$item->id}}" data-name="{{$item->name}}" class="delete-modal btn btn-danger"><span class="fa fa-trash"></span> DELETE</button></p>
+						</div>
+					</div>
+				@endforeach
+			</div>
+		</div>
 	</div>
 	<div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -64,15 +38,40 @@
 				<div class="modal-body">
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
-							<label class="control-label col-sm-2" for="id">ID:</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="fid" disabled>
+								<input type="name" class="form-control" id="fid" hidden>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="name">Name:</label>
 							<div class="col-sm-10">
 								<input type="name" class="form-control" id="n">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="name">Bio:</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="b"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="name">Sex:</label>
+							<div class="col-sm-10">
+								<select type="sex" class="form-control col-md-10" style="height: 34px !important" id="sex">
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+								</select>
+							</div>
+							{{-- <label for="sel1 col-md-2">Sex</label> --}}
+							{{-- <select type="sex" class="form-control col-md-10" id="sex"> --}}
+								{{-- 	<option value="male">Male</option> --}}
+								{{-- 	<option value="female">Female</option> --}}
+								{{-- </select> --}}
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="name">DOB:</label>
+							<div class="col-sm-10">
+								<input type="name" class="form-control" id="d">
 							</div>
 						</div>
 					</form>
@@ -93,9 +92,8 @@
 		</div>
 	</div>
 
-	@stop
+@stop
 
-	@section('script')
-		<script type="text/javascript" src="{{ URL::asset('js/actors/actors.js') }}"></script>
-		</script>
-	@endsection
+@section('script')
+	<script type="text/javascript" src="{{ URL::asset('js/actors/actors.js') }}"></script>
+@endsection

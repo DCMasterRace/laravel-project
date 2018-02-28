@@ -56,7 +56,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'put',
-            url: '/api/actors/'+id,
+            url: '/api/producer/'+id,
             data: {
                 'id': id,
                 'name': $('#n').val(),
@@ -82,7 +82,7 @@ $(document).ready(function() {
 		console.log('delete');
 		$.ajax({
 			type: 'delete',
-			url: '/api/actors/' + id,
+			url: '/api/producer/' + id,
 			success: function(data) {
 				$('.item-' + $('.did').text()).remove();
 			}
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: 'post',
-			url: '/api/actors',
+			url: '/api/producer',
 			data: {
                 'name': $('#n').val(),
 				'sex' : $('#sex').val(),
@@ -113,3 +113,4 @@ $(document).ready(function() {
 	});
 
 });
+

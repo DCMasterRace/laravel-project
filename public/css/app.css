@@ -9994,6 +9994,11 @@ a.text-dark:focus {
   }
 }
 
+.col-sm-3 {
+  /*    height: 150px;
+        background-color:#01549b;*/
+}
+
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -10002,7 +10007,7 @@ a.text-dark:focus {
   background-color: #2e353d;
   position: fixed;
   top: 0px;
-  width: 300px;
+  width: 16%;
   height: 100%;
   color: #e1ffff;
 }
@@ -10035,18 +10040,18 @@ a.text-dark:focus {
   line-height: 35px;
   cursor: pointer;
   /*    
-    .collapsed{
-       .arrow:before{
-                 font-family: FontAwesome;
-                 content: "\f053";
-                 display: inline-block;
-                 padding-left:10px;
-                 padding-right: 10px;
-                 vertical-align: middle;
-                 float:right;
-            }
-     }
-*/
+      .collapsed{
+         .arrow:before{
+                   font-family: FontAwesome;
+                   content: "\f053";
+                   display: inline-block;
+                   padding-left:10px;
+                   padding-right: 10px;
+                   vertical-align: middle;
+                   float:right;
+              }
+       }
+    */
 }
 
 .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -10162,6 +10167,47 @@ a.text-dark:focus {
 body {
   margin: 0px;
   padding: 0px;
+}
+
+#actor .card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+#actor .title {
+  color: grey;
+  font-size: 14px;
+}
+
+#actor button {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+}
+
+#actor .edit {
+  background-color: green;
+}
+
+#actor .delete {
+  background-color: red;
+}
+
+#actor a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+#actor button:hover,
+#actor a:hover {
+  opacity: 0.7;
 }
 
 .navbar-laravel {

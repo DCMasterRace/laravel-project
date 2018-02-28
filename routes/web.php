@@ -20,9 +20,7 @@ Route::get('/movies', 'MovieController@index');
 
 Route::get('/actors', 'ActorController@index');
 
-Route::get('/producers', function() {
-	return view('producer.producer');
-});
+Route::get('/producers', 'ProducerController@index');
 
 Route::get('/foo', function () {
     return view('welcome');
