@@ -10210,6 +10210,10 @@ body {
   opacity: 0.7;
 }
 
+#movie .imgs img {
+  width: 100%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
