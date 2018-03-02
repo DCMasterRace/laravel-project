@@ -10,4 +10,9 @@ class Actor extends Model
 	protected $fillable = [
 		'name', 'sex', 'bio', 'dob'
 	];
+
+	public function cast()
+	{
+		return $this->hasMany('App\Models\MovieCast');
+	}
 }

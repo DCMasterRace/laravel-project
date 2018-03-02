@@ -20,8 +20,10 @@ class MovieController extends Controller
 
 	public function index()
 	{
-		$data = Movie::all();
-		/* return response()->json(Movie::all()); */
+		$data = Movie::with('actors.actorCast')
+			->with('producer.movieProducer')
+			->get();
+		/* return response()->json($data); */
 		return view('movie.movie')->withData($data);
 	}
 

@@ -10,10 +10,22 @@
   				<tr class="item{{$item->id}}">
   					<td class='imgs col-md-1'><img src="/img/movies/{{$item->poster}}.jpg"</td>
   					<td>
-						<h4 class="row"><b>{{$item->name}}</b></h4>
-						<h5 class="row">{{$item->plot}}</h5>
-						<span class="row"><b>Producer:</b></span>
-						<span class="row"><b>Actors:</b></span>
+						<div class="col-md-12">
+							<h4 class="row"><b>{{$item->name}}</b></h4>
+							<h5 class="row">{{$item->plot}}</h5>
+							<span class="row"><b>Producer:</b>
+								@if($item->producer)
+									{{$item->producer->movie_producer['id']}}
+									@if($item->producer->movie_producer)
+									@endif
+								@endif
+							</span>
+							<span class="row"><b>Actors:</b>
+								@foreach($item->actors as $actor)
+									{{-- {{$actor->actor_cast->id}} --}}
+								@endforeach
+							</span>
+						</div>
 					</td>
   					<td><button class="edit-modal btn btn-info" data-id="{{$item->id}}"
   							data-name="{{$item->name}}">
